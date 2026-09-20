@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatriz Prieto de França | Portfólio</title>
+    <title>Beatriz Prieto de Franca | Portfólio</title>
+    
+    <!-- Ícone da Aba do Navegador (Favicon gerado em código) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B101A'/><text x='50%' y='50%' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23B8D1FF' text-anchor='middle' dominant-baseline='central'>BP</text></svg>">
+    
     <!-- Fonte e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -169,12 +173,38 @@
             gap: 50px;
             align-items: flex-start;
         }
-        .sobre-texto {
+        
+        /* Coluna da Foto e Texto */
+        .sobre-col-esquerda {
             flex: 1;
             min-width: 300px;
-            line-height: 1.8;
-            font-size: 16px;
         }
+
+        /* Estilo da Foto de Perfil */
+        .foto-perfil-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .foto-perfil {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-dark);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        .foto-perfil:hover {
+            transform: scale(1.05);
+        }
+
+        .sobre-texto p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Coluna das Competências */
         .sobre-skills {
             flex: 1;
             min-width: 300px;
@@ -334,10 +364,18 @@
     <section id="sobre" class="bg-light-section">
         <h2 class="section-title">Sobre Mim</h2>
         <div class="sobre-container">
-            <div class="sobre-texto">
-                <p>Analista de qualidade com foco em melhoria contínua e automação, apaixonada por tecnologia, inovação e eficiência operacional, e graduanda no curso de Processos Gerenciais.</p>
-                <p>Hoje, atuo no time de Qualidade em Inside Sales transformando rotinas manuais em fluxos inteligentes e autônomos, garantindo um acompanhamento em tempo real, diagnósticos de desempenho e máxima eficiência para a operação de vendas.</p>
-                <p>Transformo processos manuais em fluxos automatizados inteligentes e dados brutos em decisões estratégicas, e nesse portfólio te apresento os problemas que identifiquei e como os solucionei.</p>
+            
+            <div class="sobre-col-esquerda">
+                <!-- Foto de Perfil -->
+                <div class="foto-perfil-container">
+                    <img src="perfil.jpg" alt="Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=0B101A&color=B8D1FF&size=220&font-size=0.4';">
+                </div>
+
+                <div class="sobre-texto">
+                    <p>Analista de qualidade com foco em melhoria contínua e automação, apaixonada por tecnologia, inovação e eficiência operacional, e graduanda no curso de Processos Gerenciais.</p>
+                    <p>Hoje, atuo no time de Qualidade em Inside Sales transformando rotinas manuais em fluxos inteligentes e autônomos, garantindo um acompanhamento em tempo real, diagnósticos de desempenho e máxima eficiência para a operação de vendas.</p>
+                    <p>Transformo processos manuais em fluxos automatizados inteligentes e dados brutos em decisões estratégicas, e nesse portfólio te apresento os problemas que identifiquei e como os solucionei.</p>
+                </div>
             </div>
             
             <div class="sobre-skills">
