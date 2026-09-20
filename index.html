@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatriz Prieto de Franca | Portfólio</title>
+    <title>Beatriz Prieto de França | Portfólio</title>
     <!-- Fonte e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -260,7 +260,7 @@
             margin: 60px auto 0 auto;
             max-width: 900px;
         }
-        .doc-banner h3 { margin-top: 0; font-size: 22px; text-transform: uppercase;}
+        .doc-banner h3 { margin-top: 0; font-size: 22px; text-transform: uppercase; text-align: center; margin-bottom: 20px;}
         .doc-banner p { font-size: 15px; line-height: 1.8; margin: 0; }
         .doc-banner strong { font-weight: 700; }
 
@@ -291,6 +291,11 @@
             color: #475569;
             font-size: 13px;
         }
+
+        /* TEXTO JUSTIFICADO */
+        p, li, .card-desc, .contato-texto {
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
@@ -311,7 +316,7 @@
         <div class="particle" style="width: 400px; height: 400px; bottom: 20%; right: 5%; animation-delay: -5s;"></div>
 
         <h1>Beatriz Prieto de Franca</h1>
-        <p>Automação, IA, inovação e eficiência operacional</p>
+        <p style="text-align: center;">Automação, IA, inovação e eficiência operacional</p>
         
         <div class="social-icons">
             <a href="https://github.com/beatrizprietof" target="_blank"><i class="fab fa-github"></i></a>
@@ -387,8 +392,9 @@
             </ul>
         </div>
 
-        <!-- Botão para Baixar Currículo. Você precisa subir o arquivo PDF no repositório com o nome curriculo.pdf -->
-        <a href="curriculo.pdf" target="_blank" class="btn-curriculo"><i class="fas fa-download"></i> Baixar Currículo</a>
+        <div style="text-align: center;">
+            <a href="curriculo.pdf" target="_blank" class="btn-curriculo"><i class="fas fa-download"></i> Baixar Currículo</a>
+        </div>
     </section>
 
     <!-- Projetos -->
