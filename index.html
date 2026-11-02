@@ -6,19 +6,19 @@
     <title>Beatriz Prieto de Franca | Portfólio</title>
     
     <!-- Ícone da Aba do Navegador (Favicon) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B101A'/><text x='50%' y='50%' font-family='sans-serif' font-size='50' font-weight='bold' fill='%2300ffcc' text-anchor='middle' dominant-baseline='central'>BP</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B101A'/><text x='50%' y='50%' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23ff007f' text-anchor='middle' dominant-baseline='central'>BP</text></svg>">
     
     <!-- Fonte e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Variáveis de Cores - Tema Petróleo com Glow */
+        /* Variáveis de Cores - Tema Petróleo com Glow Rosa */
         :root {
             --bg-petroleum: #040f13;
             --text-light: #F8FAFC;
             --text-muted: #94A3B8;
-            --glow-cyan: #00ffcc;
+            --glow-pink: #ff007f;
             --glow-blue: #0077ff;
             --glass-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
@@ -43,9 +43,9 @@
             opacity: 0.4;
             animation: floatGlow 15s infinite alternate ease-in-out;
         }
-        .light-1 { top: -10%; left: -10%; width: 450px; height: 450px; background: var(--glow-cyan); }
+        .light-1 { top: -10%; left: -10%; width: 450px; height: 450px; background: var(--glow-pink); }
         .light-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: var(--glow-blue); animation-delay: -5s; }
-        .light-3 { top: 40%; left: 50%; width: 350px; height: 350px; background: rgba(0, 255, 204, 0.2); animation-delay: -10s; }
+        .light-3 { top: 40%; left: 50%; width: 350px; height: 350px; background: rgba(255, 0, 127, 0.2); animation-delay: -10s; }
 
         @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
@@ -84,9 +84,9 @@
             color: var(--text-light);
             text-decoration: none;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--glow-cyan);
+            text-shadow: 0 0 10px var(--glow-pink);
         }
-        .nav-logo span { color: var(--glow-cyan); }
+        .nav-logo span { color: var(--glow-pink); }
         .nav-links a {
             margin-left: 30px;
             text-decoration: none;
@@ -98,8 +98,8 @@
             transition: all 0.3s;
         }
         .nav-links a:hover {
-            color: var(--glow-cyan);
-            text-shadow: 0 0 8px var(--glow-cyan);
+            color: var(--glow-pink);
+            text-shadow: 0 0 8px var(--glow-pink);
         }
 
         @media (max-width: 768px) {
@@ -124,10 +124,10 @@
             font-size: 56px;
             margin-bottom: 10px;
             font-weight: 700;
-            background: linear-gradient(90deg, #fff, var(--glow-cyan));
+            background: linear-gradient(90deg, #fff, var(--glow-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+            text-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
         }
         #home p {
             font-size: 18px;
@@ -151,10 +151,10 @@
             backdrop-filter: blur(10px);
         }
         .social-icons a:hover {
-            background: rgba(0, 255, 204, 0.1);
-            border-color: var(--glow-cyan);
-            color: var(--glow-cyan);
-            box-shadow: 0 0 15px var(--glow-cyan);
+            background: rgba(255, 0, 127, 0.1);
+            border-color: var(--glow-pink);
+            color: var(--glow-pink);
+            box-shadow: 0 0 15px var(--glow-pink);
             transform: translateY(-5px);
         }
 
@@ -165,7 +165,7 @@
             letter-spacing: 1px; text-transform: uppercase;
             transition: color 0.3s;
         }
-        .scroll-down:hover { color: var(--glow-cyan); }
+        .scroll-down:hover { color: var(--glow-pink); }
         .scroll-arrow {
             width: 12px; height: 12px;
             border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
@@ -185,7 +185,7 @@
             text-transform: uppercase; letter-spacing: 3px; font-weight: 700;
             color: var(--text-light);
         }
-        .section-title span { color: var(--glow-cyan); }
+        .section-title span { color: var(--glow-pink); }
 
         /* Sobre Mim */
         .sobre-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: stretch; }
@@ -195,8 +195,8 @@
         .foto-perfil-container { text-align: center; margin-bottom: 30px; position: relative; }
         .foto-perfil {
             width: 220px; height: 220px; border-radius: 50%; object-fit: cover;
-            border: 2px solid rgba(0, 255, 204, 0.5);
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+            border: 2px solid rgba(255, 0, 127, 0.5);
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.2);
             padding: 5px; background: var(--bg-petroleum);
         }
         
@@ -204,7 +204,7 @@
         .sobre-texto p { font-size: 16px; line-height: 1.8; margin-bottom: 15px; color: var(--text-muted); text-align: justify; }
 
         .skill-box { padding: 25px; }
-        .skill-box h4 { margin: 0 0 15px 0; font-size: 18px; color: var(--glow-cyan); text-transform: uppercase; letter-spacing: 1px; }
+        .skill-box h4 { margin: 0 0 15px 0; font-size: 18px; color: var(--glow-pink); text-transform: uppercase; letter-spacing: 1px; }
         .skill-box p { margin: 0 0 12px 0; font-size: 14px; line-height: 1.6; color: var(--text-light); }
         .skill-box strong { color: #fff; }
 
@@ -214,26 +214,26 @@
         .timeline-item::before {
             content: ''; position: absolute; left: -11px; top: 0;
             width: 20px; height: 20px; border-radius: 50%;
-            background: var(--bg-petroleum); border: 2px solid var(--glow-cyan);
-            box-shadow: 0 0 10px var(--glow-cyan);
+            background: var(--bg-petroleum); border: 2px solid var(--glow-pink);
+            box-shadow: 0 0 10px var(--glow-pink);
         }
         .timeline-card { padding: 30px; }
         .timeline-card h3 { margin: 0 0 5px 0; font-size: 20px; color: var(--text-light); }
-        .timeline-date { font-size: 13px; color: var(--glow-cyan); font-weight: 600; margin-bottom: 15px; display: inline-block; letter-spacing: 1px; }
+        .timeline-date { font-size: 13px; color: var(--glow-pink); font-weight: 600; margin-bottom: 15px; display: inline-block; letter-spacing: 1px; }
         .timeline-card ul { margin: 0; padding-left: 20px; line-height: 1.7; font-size: 15px; color: var(--text-muted); text-align: justify; }
         .timeline-card li { margin-bottom: 10px; }
 
         .btn-curriculo {
             display: inline-flex; align-items: center; gap: 10px; margin-top: 40px;
-            padding: 15px 35px; background: rgba(0, 255, 204, 0.1);
-            color: var(--glow-cyan); border: 1px solid var(--glow-cyan);
+            padding: 15px 35px; background: rgba(255, 0, 127, 0.1);
+            color: var(--glow-pink); border: 1px solid var(--glow-pink);
             text-decoration: none; font-weight: bold; border-radius: 8px;
             text-transform: uppercase; font-size: 14px; letter-spacing: 1px;
-            transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
+            transition: all 0.3s ease; box-shadow: 0 0 15px rgba(255, 0, 127, 0.1);
         }
         .btn-curriculo:hover {
-            background: var(--glow-cyan); color: var(--bg-petroleum);
-            box-shadow: 0 0 25px rgba(0, 255, 204, 0.4); transform: translateY(-3px);
+            background: var(--glow-pink); color: var(--text-light);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4); transform: translateY(-3px);
         }
 
         /* Projetos - Efeito Sanfona (Accordion) */
@@ -246,7 +246,7 @@
         }
         .accordion-header:hover { background: rgba(255, 255, 255, 0.06); }
         .header-info { display: flex; flex-direction: column; gap: 5px; }
-        .card-category { font-size: 12px; color: var(--glow-cyan); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .card-category { font-size: 12px; color: var(--glow-pink); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
         .card-title { font-size: 20px; font-weight: bold; color: #fff; }
         .icon-toggle { font-size: 18px; color: var(--text-muted); transition: transform 0.4s ease; }
         
@@ -263,18 +263,18 @@
         .card-link:hover { background: #fff; color: var(--bg-petroleum); }
 
         /* Accordion Active State */
-        .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--glow-cyan); }
+        .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--glow-pink); }
         .accordion-item.active .accordion-header { border-bottom: 1px solid var(--glass-border); }
 
         /* Documentação Banner */
         .doc-banner {
             padding: 40px; text-align: center; margin: 60px auto 0 auto; max-width: 900px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0, 255, 204, 0.05));
-            border-left: 4px solid var(--glow-cyan);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255, 0, 127, 0.05));
+            border-left: 4px solid var(--glow-pink);
         }
         .doc-banner h3 { margin-top: 0; font-size: 20px; text-transform: uppercase; margin-bottom: 20px; color: #fff; }
         .doc-banner p { font-size: 15px; line-height: 1.8; margin: 0; color: var(--text-muted); }
-        .doc-banner strong { color: var(--glow-cyan); }
+        .doc-banner strong { color: var(--glow-pink); }
 
         /* Contato */
         #contato { text-align: center; }
@@ -286,10 +286,10 @@
             border: 1px solid var(--glass-border); transition: all 0.3s; backdrop-filter: blur(10px);
         }
         .contato-links a:hover {
-            border-color: var(--glow-cyan); color: var(--glow-cyan);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.15); transform: translateY(-2px);
+            border-color: var(--glow-pink); color: var(--glow-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.15); transform: translateY(-2px);
         }
-        .contato-links i { font-size: 20px; color: var(--glow-cyan); }
+        .contato-links i { font-size: 20px; color: var(--glow-pink); }
 
         footer { text-align: center; padding: 30px; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 13px; position: relative; z-index: 1; }
     </style>
@@ -337,7 +337,7 @@
             
             <div class="sobre-col-esquerda">
                 <div class="foto-perfil-container">
-                    <img src="perfil.jpg" alt="Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=00ffcc&size=220&font-size=0.4';">
+                    <img src="perfil.jpg" alt="Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=ff007f&size=220&font-size=0.4';">
                 </div>
                 <div class="glass-panel sobre-texto">
                     <p>Analista de qualidade com foco em melhoria contínua e automação, apaixonada por tecnologia, inovação e eficiência operacional, e graduanda no curso de Processos Gerenciais.</p>
