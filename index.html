@@ -6,22 +6,22 @@
     <title>Beatriz Prieto de Franca | Portfólio</title>
     
     <!-- Ícone da Aba do Navegador (Favicon) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B101A'/><text x='50%' y='50%' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23C11C84' text-anchor='middle' dominant-baseline='central'>BP</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23B882EE'/><text x='50%' y='50%' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23B882EE' text-anchor='middle' dominant-baseline='central'>BP</text></svg>">
     
     <!-- Fonte e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Variáveis - Petróleo, Magenta Elegante (#C11C84) e Múltiplas Camadas */
+        /* Variáveis - Petróleo, Lilás Elegante (#B882EE) e Múltiplas Camadas */
         :root {
             --bg-petroleum: #040f13;
             --bg-radial: radial-gradient(circle at 15% 50%, #081a21, #040f13 70%);
             --text-light: #F8FAFC;
             --text-muted: #94A3B8;
-            --magenta: #C11C84;
-            --magenta-glow: rgba(193, 28, 132, 0.4);
-            --magenta-light: rgba(193, 28, 132, 0.1);
+            --accent: #B882EE; /* Lilás */
+            --accent-glow: rgba(184, 130, 238, 0.4);
+            --accent-light: rgba(184, 130, 238, 0.1);
             --blue-glow: rgba(0, 119, 255, 0.25);
             
             /* Glassmorphism de Alto Nível (O "Piso") */
@@ -50,9 +50,9 @@
             z-index: -1;
             animation: floatGlow 18s infinite alternate ease-in-out;
         }
-        .light-1 { top: -5%; left: -10%; width: 500px; height: 500px; background: var(--magenta-glow); }
+        .light-1 { top: -5%; left: -10%; width: 500px; height: 500px; background: var(--accent-glow); }
         .light-2 { bottom: -10%; right: -5%; width: 600px; height: 600px; background: var(--blue-glow); animation-delay: -7s; }
-        .light-3 { top: 35%; left: 40%; width: 400px; height: 400px; background: rgba(193, 28, 132, 0.15); animation-delay: -12s; }
+        .light-3 { top: 35%; left: 40%; width: 400px; height: 400px; background: rgba(184, 130, 238, 0.15); animation-delay: -12s; }
 
         @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
@@ -81,8 +81,8 @@
         .glass-panel:hover::after { left: 150%; }
         .glass-panel:hover {
             transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 1px 2px rgba(193, 28, 132, 0.3);
-            border-color: rgba(193, 28, 132, 0.4);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 1px 2px rgba(184, 130, 238, 0.3);
+            border-color: rgba(184, 130, 238, 0.4);
         }
 
         /* Menu de Navegação */
@@ -98,17 +98,17 @@
         .nav-logo {
             font-size: 28px; font-weight: 800; color: var(--text-light);
             text-decoration: none; letter-spacing: 2px;
-            text-shadow: 0 0 15px var(--magenta-glow);
+            text-shadow: 0 0 15px var(--accent-glow);
         }
-        .nav-logo span { color: var(--magenta); }
+        .nav-logo span { color: var(--accent); }
         .nav-links a {
             margin-left: 35px; text-decoration: none; color: var(--text-light);
             font-weight: 600; text-transform: uppercase; font-size: 13px;
             letter-spacing: 1.5px; transition: all 0.3s;
         }
         .nav-links a:hover {
-            color: var(--magenta);
-            text-shadow: 0 0 12px var(--magenta-glow);
+            color: var(--accent);
+            text-shadow: 0 0 12px var(--accent-glow);
         }
 
         @media (max-width: 768px) {
@@ -118,7 +118,7 @@
             .nav-links a { margin-left: 0; font-size: 12px; }
         }
 
-        /* HERO SECTION - INVERSÃO DE HIERARQUIA */
+        /* HERO SECTION - HIERARQUIA */
         #home {
             min-height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -140,13 +140,14 @@
         }
         
         #home h1 {
-            font-size: clamp(2.5rem, 6vw, 5.5rem);
-            line-height: 1.1; margin-bottom: 40px; font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 10%, var(--magenta) 100%);
+            /* Tamanho reduzido para um visual mais equilibrado */
+            font-size: clamp(2rem, 4.5vw, 4.2rem); 
+            line-height: 1.15; margin-bottom: 40px; font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 10%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 15px 20px rgba(193, 28, 132, 0.3));
-            max-width: 1200px;
+            filter: drop-shadow(0 10px 15px rgba(184, 130, 238, 0.3));
+            max-width: 1100px;
         }
 
         .social-icons { display: flex; gap: 25px; }
@@ -159,8 +160,8 @@
             backdrop-filter: blur(15px); box-shadow: var(--glass-shadow), var(--glass-highlight);
         }
         .social-icons a:hover, .social-icons a:focus-visible {
-            background: var(--magenta-light); border-color: var(--magenta);
-            color: #fff; box-shadow: 0 10px 25px var(--magenta-glow), inset 0 0 10px rgba(193, 28, 132, 0.5);
+            background: var(--accent-light); border-color: var(--accent);
+            color: #fff; box-shadow: 0 10px 25px var(--accent-glow), inset 0 0 10px rgba(184, 130, 238, 0.5);
             transform: translateY(-8px) scale(1.1);
             outline: none;
         }
@@ -170,7 +171,7 @@
             color: var(--text-muted); text-decoration: none; font-size: 12px;
             letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;
         }
-        .scroll-down:hover { color: var(--magenta); }
+        .scroll-down:hover { color: var(--accent); }
         .scroll-arrow {
             width: 14px; height: 14px;
             border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
@@ -190,9 +191,9 @@
             color: var(--text-light); text-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
         .section-title span { 
-            background: linear-gradient(90deg, #fff, var(--magenta));
+            background: linear-gradient(90deg, #fff, var(--accent));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 5px 10px rgba(193, 28, 132, 0.3));
+            filter: drop-shadow(0 5px 10px rgba(184, 130, 238, 0.3));
         }
 
         /* Sobre Mim */
@@ -204,14 +205,14 @@
         
         .foto-perfil-container::before {
             content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 240px; height: 240px; border-radius: 50%; background: var(--magenta);
+            width: 240px; height: 240px; border-radius: 50%; background: var(--accent);
             filter: blur(40px); opacity: 0.4; z-index: -1;
         }
 
         .foto-perfil {
             width: 230px; height: 230px; border-radius: 50%; object-fit: cover;
-            border: 3px solid rgba(193, 28, 132, 0.6);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(193, 28, 132, 0.8);
+            border: 3px solid rgba(184, 130, 238, 0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(184, 130, 238, 0.8);
             padding: 6px; background: var(--bg-petroleum);
             transition: transform 0.5s ease;
         }
@@ -221,27 +222,27 @@
         .sobre-texto p { font-size: 16px; line-height: 1.9; margin-bottom: 20px; color: #cbd5e1; text-align: left; }
 
         .skill-box { padding: 30px; }
-        .skill-box h4 { margin: 0 0 20px 0; font-size: 18px; color: var(--magenta); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(193, 28, 132, 0.3); }
+        .skill-box h4 { margin: 0 0 20px 0; font-size: 18px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(184, 130, 238, 0.3); }
         .skill-box p { margin: 0 0 15px 0; font-size: 15px; line-height: 1.7; color: var(--text-muted); }
         .skill-box strong { color: #fff; font-weight: 600; }
 
         /* Experiência Profissional */
-        .timeline { position: relative; border-left: 2px solid rgba(193, 28, 132, 0.3); margin-left: 20px; }
+        .timeline { position: relative; border-left: 2px solid rgba(184, 130, 238, 0.3); margin-left: 20px; }
         .timeline-item { position: relative; padding-left: 45px; margin-bottom: 50px; }
         
         .timeline-item::before {
             content: ''; position: absolute; left: -11px; top: 0;
             width: 20px; height: 20px; border-radius: 50%;
-            background: var(--bg-petroleum); border: 3px solid var(--magenta);
-            box-shadow: 0 0 15px var(--magenta), inset 0 0 5px var(--magenta);
+            background: var(--bg-petroleum); border: 3px solid var(--accent);
+            box-shadow: 0 0 15px var(--accent), inset 0 0 5px var(--accent);
         }
         
         .timeline-card { padding: 35px; }
         .timeline-card h3 { margin: 0 0 10px 0; font-size: 22px; color: var(--text-light); }
         .timeline-date { 
-            font-size: 13px; color: var(--magenta); font-weight: 700; 
+            font-size: 13px; color: var(--accent); font-weight: 700; 
             margin-bottom: 20px; display: inline-block; letter-spacing: 2px;
-            background: rgba(193, 28, 132, 0.1); padding: 5px 15px; border-radius: 20px; border: 1px solid rgba(193, 28, 132, 0.2);
+            background: rgba(184, 130, 238, 0.1); padding: 5px 15px; border-radius: 20px; border: 1px solid rgba(184, 130, 238, 0.2);
         }
         .timeline-card ul { margin: 0; padding-left: 20px; line-height: 1.8; font-size: 15px; color: #cbd5e1; text-align: left; }
         .timeline-card li { margin-bottom: 12px; }
@@ -249,16 +250,16 @@
         .btn-container { text-align: center; position: relative; z-index: 2; margin-top: 50px; }
         .btn-curriculo {
             display: inline-flex; align-items: center; gap: 12px;
-            padding: 18px 45px; background: linear-gradient(135deg, rgba(193, 28, 132, 0.1), rgba(193, 28, 132, 0.02));
-            color: #fff; border: 1px solid var(--magenta);
+            padding: 18px 45px; background: linear-gradient(135deg, rgba(184, 130, 238, 0.1), rgba(184, 130, 238, 0.02));
+            color: #fff; border: 1px solid var(--accent);
             text-decoration: none; font-weight: 700; border-radius: 12px;
             text-transform: uppercase; font-size: 15px; letter-spacing: 2px;
             backdrop-filter: blur(10px);
-            transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(193, 28, 132, 0.2), inset 0 1px 2px rgba(255,255,255,0.2);
+            transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(184, 130, 238, 0.2), inset 0 1px 2px rgba(255,255,255,0.2);
         }
         .btn-curriculo:hover, .btn-curriculo:focus-visible {
-            background: var(--magenta); color: #fff;
-            box-shadow: 0 15px 40px rgba(193, 28, 132, 0.5), inset 0 -3px 5px rgba(0,0,0,0.2); 
+            background: var(--accent); color: #fff;
+            box-shadow: 0 15px 40px rgba(184, 130, 238, 0.5), inset 0 -3px 5px rgba(0,0,0,0.2); 
             transform: translateY(-5px);
             outline: none;
         }
@@ -279,15 +280,15 @@
             transition: background 0.3s ease;
         }
         .accordion-header:hover, .accordion-header:focus-visible { 
-            background: rgba(193, 28, 132, 0.05); 
+            background: rgba(184, 130, 238, 0.05); 
         }
         .accordion-header:focus-visible {
-            box-shadow: inset 0 0 0 2px var(--magenta);
+            box-shadow: inset 0 0 0 2px var(--accent);
             border-radius: 20px 20px 0 0;
         }
         
         .header-info { display: flex; flex-direction: column; gap: 8px; }
-        .card-category { font-size: 13px; color: var(--magenta); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        .card-category { font-size: 13px; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
         .card-title { font-size: 22px; font-weight: 700; color: #fff; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         .icon-toggle { font-size: 20px; color: #fff; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         
@@ -313,19 +314,19 @@
         }
 
         /* Accordion Active State */
-        .accordion-item.active { border-color: rgba(193, 28, 132, 0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(193, 28, 132, 0.1); }
-        .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--magenta); }
+        .accordion-item.active { border-color: rgba(184, 130, 238, 0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(184, 130, 238, 0.1); }
+        .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--accent); }
         .accordion-item.active .accordion-header { border-bottom: 1px solid rgba(255,255,255,0.05); }
 
         /* Documentação Banner */
         .doc-banner {
             padding: 45px; text-align: center; margin: 80px auto 0 auto; max-width: 900px;
-            background: linear-gradient(135deg, rgba(193, 28, 132, 0.1), rgba(0,0,0,0.2));
-            border-left: 5px solid var(--magenta);
+            background: linear-gradient(135deg, rgba(184, 130, 238, 0.1), rgba(0,0,0,0.2));
+            border-left: 5px solid var(--accent);
         }
         .doc-banner h3 { margin-top: 0; font-size: 22px; text-transform: uppercase; margin-bottom: 25px; color: #fff; letter-spacing: 2px; }
         .doc-banner p { font-size: 16px; line-height: 1.9; margin: 0; color: #cbd5e1; text-align: left; }
-        .doc-banner strong { color: var(--magenta); text-shadow: 0 0 10px rgba(193, 28, 132, 0.3); }
+        .doc-banner strong { color: var(--accent); text-shadow: 0 0 10px rgba(184, 130, 238, 0.3); }
 
         /* Contato */
         #contato { text-align: center; }
@@ -339,11 +340,11 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(15px);
         }
         .contato-links a:hover, .contato-links a:focus-visible {
-            border-color: var(--magenta); color: #fff; background: rgba(193, 28, 132, 0.1);
-            box-shadow: 0 15px 30px rgba(193, 28, 132, 0.25), inset 0 1px 2px rgba(255,255,255,0.2); 
+            border-color: var(--accent); color: #fff; background: rgba(184, 130, 238, 0.1);
+            box-shadow: 0 15px 30px rgba(184, 130, 238, 0.25), inset 0 1px 2px rgba(255,255,255,0.2); 
             transform: translateY(-4px) scale(1.02); outline: none;
         }
-        .contato-links i { font-size: 22px; color: var(--magenta); }
+        .contato-links i { font-size: 22px; color: var(--accent); }
 
         footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 14px; position: relative; z-index: 1; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
     </style>
@@ -367,7 +368,7 @@
         </div>
     </nav>
 
-    <!-- Home (Hierarquia Invertida) -->
+    <!-- Home (Hierarquia) -->
     <section id="home">
         <div class="hero-subtitle">Beatriz Prieto de Franca</div>
         <h1>Automação, IA, inovação <br>e eficiência operacional</h1>
@@ -391,7 +392,7 @@
             
             <div class="sobre-col-esquerda">
                 <div class="foto-perfil-container">
-                    <img src="perfil.jpg" alt="Foto de Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=C11C84&size=230&font-size=0.4';">
+                    <img src="perfil.jpg" alt="Foto de Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=B882EE&size=230&font-size=0.4';">
                 </div>
                 <div class="glass-panel sobre-texto">
                     <p>Analista de qualidade com foco em melhoria contínua e automação, apaixonada por tecnologia, inovação e eficiência operacional, e graduanda no curso de Processos Gerenciais.</p>
