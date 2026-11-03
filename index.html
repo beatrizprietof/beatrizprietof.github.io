@@ -6,100 +6,109 @@
     <title>Beatriz Prieto de Franca | Portfólio</title>
     
     <!-- Ícone da Aba do Navegador (Favicon) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B101A'/><text x='50%' y='50%' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23ff007f' text-anchor='middle' dominant-baseline='central'>BP</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B101A'/><text x='50%' y='50%' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23C11C84' text-anchor='middle' dominant-baseline='central'>BP</text></svg>">
     
     <!-- Fonte e Ícones -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Variáveis de Cores - Tema Petróleo com Glow Rosa */
+        /* Variáveis - Petróleo, Magenta Elegante (#C11C84) e Múltiplas Camadas */
         :root {
             --bg-petroleum: #040f13;
+            --bg-radial: radial-gradient(circle at 15% 50%, #081a21, #040f13 70%);
             --text-light: #F8FAFC;
             --text-muted: #94A3B8;
-            --glow-pink: #ff007f;
-            --glow-blue: #0077ff;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-blur: 16px;
+            --magenta: #C11C84;
+            --magenta-glow: rgba(193, 28, 132, 0.4);
+            --magenta-light: rgba(193, 28, 132, 0.1);
+            --blue-glow: rgba(0, 119, 255, 0.25);
+            
+            /* Glassmorphism de Alto Nível (O "Piso") */
+            --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            --glass-blur: 24px;
+            --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
         }
 
         body, html {
             margin: 0; padding: 0;
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            background: var(--bg-radial);
             background-color: var(--bg-petroleum);
             color: var(--text-light);
             overflow-x: hidden;
         }
 
-        /* EFEITO DE LUZES NO FUNDO (GLOW) */
+        /* LUZES DE FUNDO (AMBIENT GLOW - CRIANDO CAMADAS TRASEIRAS) */
         .ambient-light {
             position: fixed;
             border-radius: 50%;
-            filter: blur(120px);
+            filter: blur(140px);
             z-index: -1;
-            opacity: 0.4;
-            animation: floatGlow 15s infinite alternate ease-in-out;
+            animation: floatGlow 18s infinite alternate ease-in-out;
         }
-        .light-1 { top: -10%; left: -10%; width: 450px; height: 450px; background: var(--glow-pink); }
-        .light-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: var(--glow-blue); animation-delay: -5s; }
-        .light-3 { top: 40%; left: 50%; width: 350px; height: 350px; background: rgba(255, 0, 127, 0.2); animation-delay: -10s; }
+        .light-1 { top: -5%; left: -10%; width: 500px; height: 500px; background: var(--magenta-glow); }
+        .light-2 { bottom: -10%; right: -5%; width: 600px; height: 600px; background: var(--blue-glow); animation-delay: -7s; }
+        .light-3 { top: 35%; left: 40%; width: 400px; height: 400px; background: rgba(193, 28, 132, 0.15); animation-delay: -12s; }
 
         @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
+            100% { transform: translate(80px, -50px) scale(1.15); }
         }
 
-        /* CLASSE PADRÃO GLASSMORPHISM */
+        /* CLASSE PADRÃO GLASSMORPHISM (PROFUNDIDADE EXTREMA) */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(var(--glass-blur));
             -webkit-backdrop-filter: blur(var(--glass-blur));
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            box-shadow: var(--glass-shadow), var(--glass-highlight);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Reflexo extra no vidro ao passar o mouse */
+        .glass-panel::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: skewX(-20deg); transition: 0.7s;
+        }
+        .glass-panel:hover::after { left: 150%; }
+        .glass-panel:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 1px 2px rgba(193, 28, 132, 0.3);
+            border-color: rgba(193, 28, 132, 0.4);
         }
 
         /* Menu de Navegação */
         nav {
-            position: fixed;
-            top: 0; width: 100%;
-            background: rgba(4, 15, 19, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            box-sizing: border-box;
-            z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
+            position: fixed; top: 0; width: 100%;
+            background: linear-gradient(to bottom, rgba(4, 15, 19, 0.8), rgba(4, 15, 19, 0.2));
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; box-sizing: border-box; z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
         .nav-logo {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--text-light);
-            text-decoration: none;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--glow-pink);
+            font-size: 28px; font-weight: 800; color: var(--text-light);
+            text-decoration: none; letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--magenta-glow);
         }
-        .nav-logo span { color: var(--glow-pink); }
+        .nav-logo span { color: var(--magenta); }
         .nav-links a {
-            margin-left: 30px;
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            transition: all 0.3s;
+            margin-left: 35px; text-decoration: none; color: var(--text-light);
+            font-weight: 600; text-transform: uppercase; font-size: 13px;
+            letter-spacing: 1.5px; transition: all 0.3s;
         }
         .nav-links a:hover {
-            color: var(--glow-pink);
-            text-shadow: 0 0 8px var(--glow-pink);
+            color: var(--magenta);
+            text-shadow: 0 0 12px var(--magenta-glow);
         }
 
         @media (max-width: 768px) {
@@ -109,68 +118,62 @@
             .nav-links a { margin-left: 0; font-size: 12px; }
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - INVERSÃO DE HIERARQUIA */
         #home {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 1;
+            min-height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            position: relative; z-index: 1; padding: 0 5%;
         }
+        
+        .hero-subtitle {
+            font-size: clamp(14px, 2vw, 20px);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-highlight);
+        }
+        
         #home h1 {
-            font-size: 56px;
-            margin-bottom: 10px;
-            font-weight: 700;
-            background: linear-gradient(90deg, #fff, var(--glow-pink));
+            font-size: clamp(2.5rem, 6vw, 5.5rem); /* DOMINANTE */
+            line-height: 1.1; margin-bottom: 40px; font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 10%, var(--magenta) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
+            text-shadow: 0 20px 40px rgba(193, 28, 132, 0.3);
+            max-width: 1200px;
         }
-        #home p {
-            font-size: 18px;
-            color: var(--text-muted);
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-        }
+
         .social-icons { display: flex; gap: 25px; }
         .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-light);
-            font-size: 22px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            display: flex; align-items: center; justify-content: center;
+            width: 55px; height: 55px; border-radius: 50%;
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            color: var(--text-light); font-size: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(15px); box-shadow: var(--glass-shadow), var(--glass-highlight);
         }
         .social-icons a:hover {
-            background: rgba(255, 0, 127, 0.1);
-            border-color: var(--glow-pink);
-            color: var(--glow-pink);
-            box-shadow: 0 0 15px var(--glow-pink);
-            transform: translateY(-5px);
+            background: var(--magenta-light); border-color: var(--magenta);
+            color: #fff; box-shadow: 0 10px 25px var(--magenta-glow), inset 0 0 10px rgba(193, 28, 132, 0.5);
+            transform: translateY(-8px) scale(1.1);
         }
 
         .scroll-down {
-            position: absolute; bottom: 40px;
-            display: flex; flex-direction: column; align-items: center;
+            position: absolute; bottom: 40px; display: flex; flex-direction: column; align-items: center;
             color: var(--text-muted); text-decoration: none; font-size: 12px;
-            letter-spacing: 1px; text-transform: uppercase;
-            transition: color 0.3s;
+            letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;
         }
-        .scroll-down:hover { color: var(--glow-pink); }
+        .scroll-down:hover { color: var(--magenta); }
         .scroll-arrow {
-            width: 12px; height: 12px;
+            width: 14px; height: 14px;
             border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
-            transform: rotate(45deg); margin-top: 10px;
-            animation: bounce 2s infinite;
+            transform: rotate(45deg); margin-top: 15px; animation: bounce 2s infinite;
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
@@ -179,124 +182,165 @@
         }
 
         /* Estilos de Seção */
-        section { padding: 100px 10%; position: relative; z-index: 1; }
+        section { padding: 120px 10%; position: relative; z-index: 1; }
         .section-title {
-            text-align: center; font-size: 32px; margin-bottom: 60px;
-            text-transform: uppercase; letter-spacing: 3px; font-weight: 700;
-            color: var(--text-light);
+            text-align: center; font-size: clamp(28px, 4vw, 42px); margin-bottom: 70px;
+            text-transform: uppercase; letter-spacing: 4px; font-weight: 800;
+            color: var(--text-light); text-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
-        .section-title span { color: var(--glow-pink); }
+        .section-title span { 
+            background: linear-gradient(90deg, #fff, var(--magenta));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
 
         /* Sobre Mim */
         .sobre-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: stretch; }
         .sobre-col-esquerda { flex: 1; min-width: 300px; display: flex; flex-direction: column; }
-        .sobre-skills { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+        .sobre-skills { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 25px; }
         
-        .foto-perfil-container { text-align: center; margin-bottom: 30px; position: relative; }
-        .foto-perfil {
-            width: 220px; height: 220px; border-radius: 50%; object-fit: cover;
-            border: 2px solid rgba(255, 0, 127, 0.5);
-            box-shadow: 0 0 30px rgba(255, 0, 127, 0.2);
-            padding: 5px; background: var(--bg-petroleum);
+        .foto-perfil-container { text-align: center; margin-bottom: 40px; position: relative; }
+        
+        /* Círculos de brilho em camadas atrás da foto */
+        .foto-perfil-container::before {
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 240px; height: 240px; border-radius: 50%; background: var(--magenta);
+            filter: blur(40px); opacity: 0.4; z-index: -1;
         }
-        
-        .sobre-texto { padding: 30px; height: 100%; box-sizing: border-box; }
-        .sobre-texto p { font-size: 16px; line-height: 1.8; margin-bottom: 15px; color: var(--text-muted); text-align: justify; }
 
-        .skill-box { padding: 25px; }
-        .skill-box h4 { margin: 0 0 15px 0; font-size: 18px; color: var(--glow-pink); text-transform: uppercase; letter-spacing: 1px; }
-        .skill-box p { margin: 0 0 12px 0; font-size: 14px; line-height: 1.6; color: var(--text-light); }
-        .skill-box strong { color: #fff; }
+        .foto-perfil {
+            width: 230px; height: 230px; border-radius: 50%; object-fit: cover;
+            border: 3px solid rgba(193, 28, 132, 0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(193, 28, 132, 0.8);
+            padding: 6px; background: var(--bg-petroleum);
+            transition: transform 0.5s ease;
+        }
+        .foto-perfil:hover { transform: scale(1.05) rotate(2deg); }
+        
+        .sobre-texto { padding: 40px; height: 100%; box-sizing: border-box; }
+        .sobre-texto p { font-size: 16px; line-height: 1.9; margin-bottom: 20px; color: #cbd5e1; text-align: justify; }
+
+        .skill-box { padding: 30px; }
+        .skill-box h4 { margin: 0 0 20px 0; font-size: 18px; color: var(--magenta); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(193, 28, 132, 0.3); }
+        .skill-box p { margin: 0 0 15px 0; font-size: 15px; line-height: 1.7; color: var(--text-muted); }
+        .skill-box strong { color: #fff; font-weight: 600; }
 
         /* Experiência Profissional */
-        .timeline { position: relative; border-left: 2px solid var(--glass-border); margin-left: 20px; }
-        .timeline-item { position: relative; padding-left: 40px; margin-bottom: 40px; }
+        .timeline { position: relative; border-left: 2px solid rgba(193, 28, 132, 0.3); margin-left: 20px; }
+        .timeline-item { position: relative; padding-left: 45px; margin-bottom: 50px; }
+        
+        /* Bolinha da timeline em camadas */
         .timeline-item::before {
             content: ''; position: absolute; left: -11px; top: 0;
             width: 20px; height: 20px; border-radius: 50%;
-            background: var(--bg-petroleum); border: 2px solid var(--glow-pink);
-            box-shadow: 0 0 10px var(--glow-pink);
+            background: var(--bg-petroleum); border: 3px solid var(--magenta);
+            box-shadow: 0 0 15px var(--magenta), inset 0 0 5px var(--magenta);
         }
-        .timeline-card { padding: 30px; }
-        .timeline-card h3 { margin: 0 0 5px 0; font-size: 20px; color: var(--text-light); }
-        .timeline-date { font-size: 13px; color: var(--glow-pink); font-weight: 600; margin-bottom: 15px; display: inline-block; letter-spacing: 1px; }
-        .timeline-card ul { margin: 0; padding-left: 20px; line-height: 1.7; font-size: 15px; color: var(--text-muted); text-align: justify; }
-        .timeline-card li { margin-bottom: 10px; }
+        
+        .timeline-card { padding: 35px; }
+        .timeline-card h3 { margin: 0 0 10px 0; font-size: 22px; color: var(--text-light); }
+        .timeline-date { 
+            font-size: 13px; color: var(--magenta); font-weight: 700; 
+            margin-bottom: 20px; display: inline-block; letter-spacing: 2px;
+            background: rgba(193, 28, 132, 0.1); padding: 5px 15px; border-radius: 20px; border: 1px solid rgba(193, 28, 132, 0.2);
+        }
+        .timeline-card ul { margin: 0; padding-left: 20px; line-height: 1.8; font-size: 15px; color: #cbd5e1; text-align: justify; }
+        .timeline-card li { margin-bottom: 12px; }
 
+        .btn-container { text-align: center; position: relative; z-index: 2; margin-top: 50px; }
         .btn-curriculo {
-            display: inline-flex; align-items: center; gap: 10px; margin-top: 40px;
-            padding: 15px 35px; background: rgba(255, 0, 127, 0.1);
-            color: var(--glow-pink); border: 1px solid var(--glow-pink);
-            text-decoration: none; font-weight: bold; border-radius: 8px;
-            text-transform: uppercase; font-size: 14px; letter-spacing: 1px;
-            transition: all 0.3s ease; box-shadow: 0 0 15px rgba(255, 0, 127, 0.1);
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 18px 45px; background: linear-gradient(135deg, rgba(193, 28, 132, 0.1), rgba(193, 28, 132, 0.02));
+            color: #fff; border: 1px solid var(--magenta);
+            text-decoration: none; font-weight: 700; border-radius: 12px;
+            text-transform: uppercase; font-size: 15px; letter-spacing: 2px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(193, 28, 132, 0.2), inset 0 1px 2px rgba(255,255,255,0.2);
         }
         .btn-curriculo:hover {
-            background: var(--glow-pink); color: var(--text-light);
-            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4); transform: translateY(-3px);
+            background: var(--magenta); color: #fff;
+            box-shadow: 0 15px 40px rgba(193, 28, 132, 0.5), inset 0 -3px 5px rgba(0,0,0,0.2); 
+            transform: translateY(-5px);
         }
 
-        /* Projetos - Efeito Sanfona (Accordion) */
-        .projetos-accordion { display: flex; flex-direction: column; gap: 15px; max-width: 900px; margin: 0 auto; }
-        .accordion-item { overflow: hidden; }
+        /* Projetos - Efeito Sanfona (Camadas e Degradês) */
+        .projetos-accordion { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
+        .accordion-item { 
+            overflow: hidden; 
+            /* Evita conflito com o hover generico do glass-panel para o accordion funcionar suave */
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .accordion-item:hover { transform: none; } /* Sobrescreve o hover do glass-panel aqui */
         
         .accordion-header {
-            padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            padding: 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.01));
             transition: background 0.3s ease;
         }
-        .accordion-header:hover { background: rgba(255, 255, 255, 0.06); }
-        .header-info { display: flex; flex-direction: column; gap: 5px; }
-        .card-category { font-size: 12px; color: var(--glow-pink); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-        .card-title { font-size: 20px; font-weight: bold; color: #fff; }
-        .icon-toggle { font-size: 18px; color: var(--text-muted); transition: transform 0.4s ease; }
+        .accordion-header:hover { background: rgba(193, 28, 132, 0.05); }
+        
+        .header-info { display: flex; flex-direction: column; gap: 8px; }
+        .card-category { font-size: 13px; color: var(--magenta); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        .card-title { font-size: 22px; font-weight: 700; color: #fff; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .icon-toggle { font-size: 20px; color: #fff; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         
         .accordion-content {
-            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: rgba(0,0,0,0.2);
+            max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            background: inset 0 10px 20px rgba(0,0,0,0.2);
         }
         .content-inner { padding: 0 30px 30px 30px; }
-        .card-desc { font-size: 15px; color: var(--text-muted); margin-top: 15px; margin-bottom: 20px; line-height: 1.7; text-align: justify; }
-        .card-tech { font-size: 13px; font-weight: 600; color: #CBD5E1; padding: 15px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 20px; }
-        .card-link {
-            display: inline-block; text-decoration: none; color: #fff; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-            padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: bold; transition: all 0.3s;
+        .card-desc { font-size: 16px; color: #cbd5e1; margin-top: 15px; margin-bottom: 25px; line-height: 1.8; text-align: justify; }
+        .card-tech { 
+            font-size: 14px; font-weight: 600; color: #fff; padding: 15px 20px; 
+            background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 25px; 
         }
-        .card-link:hover { background: #fff; color: var(--bg-petroleum); }
+        .card-link {
+            display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #fff; 
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)); 
+            border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 12px 25px; border-radius: 8px; font-size: 14px; font-weight: 700; transition: all 0.3s;
+        }
+        .card-link:hover { background: #fff; color: var(--bg-petroleum); box-shadow: 0 0 20px rgba(255,255,255,0.3); }
 
         /* Accordion Active State */
-        .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--glow-pink); }
-        .accordion-item.active .accordion-header { border-bottom: 1px solid var(--glass-border); }
+        .accordion-item.active { border-color: rgba(193, 28, 132, 0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(193, 28, 132, 0.1); }
+        .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--magenta); }
+        .accordion-item.active .accordion-header { border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        /* Documentação Banner */
+        /* Documentação Banner (Profundidade) */
         .doc-banner {
-            padding: 40px; text-align: center; margin: 60px auto 0 auto; max-width: 900px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255, 0, 127, 0.05));
-            border-left: 4px solid var(--glow-pink);
+            padding: 45px; text-align: center; margin: 80px auto 0 auto; max-width: 900px;
+            background: linear-gradient(135deg, rgba(193, 28, 132, 0.1), rgba(0,0,0,0.2));
+            border-left: 5px solid var(--magenta);
         }
-        .doc-banner h3 { margin-top: 0; font-size: 20px; text-transform: uppercase; margin-bottom: 20px; color: #fff; }
-        .doc-banner p { font-size: 15px; line-height: 1.8; margin: 0; color: var(--text-muted); }
-        .doc-banner strong { color: var(--glow-pink); }
+        .doc-banner h3 { margin-top: 0; font-size: 22px; text-transform: uppercase; margin-bottom: 25px; color: #fff; letter-spacing: 2px; }
+        .doc-banner p { font-size: 16px; line-height: 1.9; margin: 0; color: #cbd5e1; }
+        .doc-banner strong { color: var(--magenta); text-shadow: 0 0 10px rgba(193, 28, 132, 0.3); }
 
         /* Contato */
         #contato { text-align: center; }
-        .contato-texto { font-size: 16px; line-height: 1.8; margin-bottom: 40px; color: var(--text-muted); max-width: 700px; margin-left: auto; margin-right: auto; text-align: justify; }
+        .contato-texto { font-size: 18px; line-height: 1.9; margin-bottom: 50px; color: #cbd5e1; max-width: 750px; margin-left: auto; margin-right: auto; text-align: justify; }
         .contato-links { display: flex; flex-direction: column; gap: 20px; align-items: center; }
         .contato-links a, .contato-links span {
             color: var(--text-light); text-decoration: none; display: flex; align-items: center; gap: 15px;
-            font-size: 16px; padding: 15px 30px; border-radius: 50px; background: var(--glass-bg);
-            border: 1px solid var(--glass-border); transition: all 0.3s; backdrop-filter: blur(10px);
+            font-size: 16px; padding: 18px 40px; border-radius: 50px; 
+            background: var(--glass-bg); border: 1px solid var(--glass-border); 
+            box-shadow: var(--glass-shadow), var(--glass-highlight);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(15px);
         }
         .contato-links a:hover {
-            border-color: var(--glow-pink); color: var(--glow-pink);
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.15); transform: translateY(-2px);
+            border-color: var(--magenta); color: #fff; background: rgba(193, 28, 132, 0.1);
+            box-shadow: 0 15px 30px rgba(193, 28, 132, 0.25), inset 0 1px 2px rgba(255,255,255,0.2); 
+            transform: translateY(-4px) scale(1.02);
         }
-        .contato-links i { font-size: 20px; color: var(--glow-pink); }
+        .contato-links i { font-size: 22px; color: var(--magenta); }
 
-        footer { text-align: center; padding: 30px; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 13px; position: relative; z-index: 1; }
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 14px; position: relative; z-index: 1; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
     </style>
 </head>
 <body>
 
-    <!-- Luzes Ambientes de Fundo -->
+    <!-- Luzes Ambientes de Fundo (Camadas de Profundidade) -->
     <div class="ambient-light light-1"></div>
     <div class="ambient-light light-2"></div>
     <div class="ambient-light light-3"></div>
@@ -313,10 +357,10 @@
         </div>
     </nav>
 
-    <!-- Home -->
+    <!-- Home (Hierarquia Invertida) -->
     <section id="home">
-        <h1>Beatriz Prieto de Franca</h1>
-        <p>Automação, IA, inovação e eficiência operacional</p>
+        <div class="hero-subtitle">Beatriz Prieto de Franca</div>
+        <h1>Automação, IA, inovação <br>e eficiência operacional</h1>
         
         <div class="social-icons">
             <a href="https://github.com/beatrizprietof" target="_blank"><i class="fab fa-github"></i></a>
@@ -337,7 +381,7 @@
             
             <div class="sobre-col-esquerda">
                 <div class="foto-perfil-container">
-                    <img src="perfil.jpg" alt="Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=ff007f&size=220&font-size=0.4';">
+                    <img src="perfil.jpg" alt="Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=C11C84&size=230&font-size=0.4';">
                 </div>
                 <div class="glass-panel sobre-texto">
                     <p>Analista de qualidade com foco em melhoria contínua e automação, apaixonada por tecnologia, inovação e eficiência operacional, e graduanda no curso de Processos Gerenciais.</p>
@@ -415,12 +459,12 @@
             </div>
         </div>
 
-        <div style="text-align: center;">
+        <div class="btn-container">
             <a href="curriculo.pdf" target="_blank" class="btn-curriculo"><i class="fas fa-download"></i> Baixar Currículo</a>
         </div>
     </section>
 
-    <!-- Projetos (Com Efeito Sanfona) -->
+    <!-- Projetos -->
     <section id="projetos">
         <h2 class="section-title">Projetos em <span>Destaque</span></h2>
         
@@ -437,7 +481,7 @@
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Agente autônomo integrado para triagem, processamento de demandas e respostas automatizadas.</div>
-                        <div class="card-tech">Zapier, LLM, Webhooks</div>
+                        <div class="card-tech">Stack: Zapier, LLM, Webhooks</div>
                         <a href="https://github.com/beatrizprietof/agente-ia-zapier" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
                     </div>
                 </div>
@@ -454,7 +498,7 @@
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Painel interativo focado na análise de KPIs operacionais com navegação dinâmica.</div>
-                        <div class="card-tech">Looker Studio, SQL</div>
+                        <div class="card-tech">Stack: Looker Studio, SQL</div>
                         <a href="https://github.com/beatrizprietof/dashboard-imoveis-despublicados" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
                     </div>
                 </div>
@@ -471,7 +515,7 @@
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Aplicação customizada em código para exploração visual de dados em tempo real.</div>
-                        <div class="card-tech">Python, Streamlit/Dash</div>
+                        <div class="card-tech">Stack: Python, Streamlit/Dash</div>
                         <a href="https://github.com/beatrizprietof/dashboard-indicadores-qualidade-appscript" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
                     </div>
                 </div>
@@ -488,7 +532,7 @@
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Script que consolida o volume de feedbacks recebidos e dispara resumos automáticos por e-mail.</div>
-                        <div class="card-tech">Python, SMTP, APIs</div>
+                        <div class="card-tech">Stack: Python, SMTP, APIs</div>
                         <a href="https://github.com/beatrizprietof/automacao-email-feedbacks-appscript" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
                     </div>
                 </div>
@@ -505,7 +549,7 @@
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Sistema de monitoramento contínuo que envia cards de alerta instantâneos em canais de equipe.</div>
-                        <div class="card-tech">Python, Google Chat API</div>
+                        <div class="card-tech">Stack: Python, Google Chat API</div>
                         <a href="https://github.com/beatrizprietof/alerta-aderencia-gchat-appscript" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
                     </div>
                 </div>
@@ -541,17 +585,21 @@
         Desenvolvido por Beatriz Prieto de Franca © 2026
     </footer>
 
-    <!-- Script para o Efeito Sanfona (Accordion) -->
+    <!-- Script Accordion Otimizado para Animação -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const accordions = document.querySelectorAll('.accordion-header');
             
-            // Abre o primeiro projeto por padrão (opcional)
+            // Abre o primeiro projeto por padrão
             if(accordions.length > 0) {
                 const firstItem = accordions[0].parentElement;
                 const firstContent = accordions[0].nextElementSibling;
                 firstItem.classList.add('active');
-                firstContent.style.maxHeight = firstContent.scrollHeight + "px";
+                
+                // timeout para garantir que o DOM renderizou antes de pegar a altura
+                setTimeout(() => {
+                    firstContent.style.maxHeight = firstContent.scrollHeight + "px";
+                }, 100);
             }
 
             accordions.forEach(acc => {
@@ -560,13 +608,13 @@
                     const content = this.nextElementSibling;
                     const isActive = item.classList.contains('active');
 
-                    // Fecha todos os outros
+                    // Fecha todos
                     document.querySelectorAll('.accordion-item').forEach(otherItem => {
                         otherItem.classList.remove('active');
                         otherItem.querySelector('.accordion-content').style.maxHeight = null;
                     });
 
-                    // Se não estava ativo, abre o clicado
+                    // Abre o clicado se estava fechado
                     if (!isActive) {
                         item.classList.add('active');
                         content.style.maxHeight = content.scrollHeight + "px";
