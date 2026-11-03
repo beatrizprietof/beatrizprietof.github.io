@@ -140,12 +140,12 @@
         }
         
         #home h1 {
-            font-size: clamp(2.5rem, 6vw, 5.5rem); /* DOMINANTE */
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
             line-height: 1.1; margin-bottom: 40px; font-weight: 800;
             background: linear-gradient(135deg, #ffffff 10%, var(--magenta) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 20px 40px rgba(193, 28, 132, 0.3);
+            filter: drop-shadow(0 15px 20px rgba(193, 28, 132, 0.3));
             max-width: 1200px;
         }
 
@@ -158,10 +158,11 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             backdrop-filter: blur(15px); box-shadow: var(--glass-shadow), var(--glass-highlight);
         }
-        .social-icons a:hover {
+        .social-icons a:hover, .social-icons a:focus-visible {
             background: var(--magenta-light); border-color: var(--magenta);
             color: #fff; box-shadow: 0 10px 25px var(--magenta-glow), inset 0 0 10px rgba(193, 28, 132, 0.5);
             transform: translateY(-8px) scale(1.1);
+            outline: none;
         }
 
         .scroll-down {
@@ -191,6 +192,7 @@
         .section-title span { 
             background: linear-gradient(90deg, #fff, var(--magenta));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 10px rgba(193, 28, 132, 0.3));
         }
 
         /* Sobre Mim */
@@ -200,7 +202,6 @@
         
         .foto-perfil-container { text-align: center; margin-bottom: 40px; position: relative; }
         
-        /* Círculos de brilho em camadas atrás da foto */
         .foto-perfil-container::before {
             content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             width: 240px; height: 240px; border-radius: 50%; background: var(--magenta);
@@ -217,7 +218,7 @@
         .foto-perfil:hover { transform: scale(1.05) rotate(2deg); }
         
         .sobre-texto { padding: 40px; height: 100%; box-sizing: border-box; }
-        .sobre-texto p { font-size: 16px; line-height: 1.9; margin-bottom: 20px; color: #cbd5e1; text-align: justify; }
+        .sobre-texto p { font-size: 16px; line-height: 1.9; margin-bottom: 20px; color: #cbd5e1; text-align: left; }
 
         .skill-box { padding: 30px; }
         .skill-box h4 { margin: 0 0 20px 0; font-size: 18px; color: var(--magenta); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(193, 28, 132, 0.3); }
@@ -228,7 +229,6 @@
         .timeline { position: relative; border-left: 2px solid rgba(193, 28, 132, 0.3); margin-left: 20px; }
         .timeline-item { position: relative; padding-left: 45px; margin-bottom: 50px; }
         
-        /* Bolinha da timeline em camadas */
         .timeline-item::before {
             content: ''; position: absolute; left: -11px; top: 0;
             width: 20px; height: 20px; border-radius: 50%;
@@ -243,7 +243,7 @@
             margin-bottom: 20px; display: inline-block; letter-spacing: 2px;
             background: rgba(193, 28, 132, 0.1); padding: 5px 15px; border-radius: 20px; border: 1px solid rgba(193, 28, 132, 0.2);
         }
-        .timeline-card ul { margin: 0; padding-left: 20px; line-height: 1.8; font-size: 15px; color: #cbd5e1; text-align: justify; }
+        .timeline-card ul { margin: 0; padding-left: 20px; line-height: 1.8; font-size: 15px; color: #cbd5e1; text-align: left; }
         .timeline-card li { margin-bottom: 12px; }
 
         .btn-container { text-align: center; position: relative; z-index: 2; margin-top: 50px; }
@@ -256,27 +256,35 @@
             backdrop-filter: blur(10px);
             transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(193, 28, 132, 0.2), inset 0 1px 2px rgba(255,255,255,0.2);
         }
-        .btn-curriculo:hover {
+        .btn-curriculo:hover, .btn-curriculo:focus-visible {
             background: var(--magenta); color: #fff;
             box-shadow: 0 15px 40px rgba(193, 28, 132, 0.5), inset 0 -3px 5px rgba(0,0,0,0.2); 
             transform: translateY(-5px);
+            outline: none;
         }
 
-        /* Projetos - Efeito Sanfona (Camadas e Degradês) */
+        /* Projetos - Efeito Sanfona (Camadas e Botões) */
         .projetos-accordion { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
         .accordion-item { 
             overflow: hidden; 
-            /* Evita conflito com o hover generico do glass-panel para o accordion funcionar suave */
             transition: box-shadow 0.4s ease, border-color 0.4s ease;
         }
-        .accordion-item:hover { transform: none; } /* Sobrescreve o hover do glass-panel aqui */
+        .accordion-item:hover { transform: none; }
         
         .accordion-header {
+            width: 100%; border: none; font-family: inherit; color: inherit; text-align: left;
+            appearance: none; outline: none;
             padding: 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.01));
             transition: background 0.3s ease;
         }
-        .accordion-header:hover { background: rgba(193, 28, 132, 0.05); }
+        .accordion-header:hover, .accordion-header:focus-visible { 
+            background: rgba(193, 28, 132, 0.05); 
+        }
+        .accordion-header:focus-visible {
+            box-shadow: inset 0 0 0 2px var(--magenta);
+            border-radius: 20px 20px 0 0;
+        }
         
         .header-info { display: flex; flex-direction: column; gap: 8px; }
         .card-category { font-size: 13px; color: var(--magenta); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
@@ -288,7 +296,7 @@
             background: inset 0 10px 20px rgba(0,0,0,0.2);
         }
         .content-inner { padding: 0 30px 30px 30px; }
-        .card-desc { font-size: 16px; color: #cbd5e1; margin-top: 15px; margin-bottom: 25px; line-height: 1.8; text-align: justify; }
+        .card-desc { font-size: 16px; color: #cbd5e1; margin-top: 15px; margin-bottom: 25px; line-height: 1.8; text-align: left; }
         .card-tech { 
             font-size: 14px; font-weight: 600; color: #fff; padding: 15px 20px; 
             background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);
@@ -300,26 +308,28 @@
             border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             padding: 12px 25px; border-radius: 8px; font-size: 14px; font-weight: 700; transition: all 0.3s;
         }
-        .card-link:hover { background: #fff; color: var(--bg-petroleum); box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+        .card-link:hover, .card-link:focus-visible { 
+            background: #fff; color: var(--bg-petroleum); box-shadow: 0 0 20px rgba(255,255,255,0.3); outline: none;
+        }
 
         /* Accordion Active State */
         .accordion-item.active { border-color: rgba(193, 28, 132, 0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(193, 28, 132, 0.1); }
         .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--magenta); }
         .accordion-item.active .accordion-header { border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        /* Documentação Banner (Profundidade) */
+        /* Documentação Banner */
         .doc-banner {
             padding: 45px; text-align: center; margin: 80px auto 0 auto; max-width: 900px;
             background: linear-gradient(135deg, rgba(193, 28, 132, 0.1), rgba(0,0,0,0.2));
             border-left: 5px solid var(--magenta);
         }
         .doc-banner h3 { margin-top: 0; font-size: 22px; text-transform: uppercase; margin-bottom: 25px; color: #fff; letter-spacing: 2px; }
-        .doc-banner p { font-size: 16px; line-height: 1.9; margin: 0; color: #cbd5e1; }
+        .doc-banner p { font-size: 16px; line-height: 1.9; margin: 0; color: #cbd5e1; text-align: left; }
         .doc-banner strong { color: var(--magenta); text-shadow: 0 0 10px rgba(193, 28, 132, 0.3); }
 
         /* Contato */
         #contato { text-align: center; }
-        .contato-texto { font-size: 18px; line-height: 1.9; margin-bottom: 50px; color: #cbd5e1; max-width: 750px; margin-left: auto; margin-right: auto; text-align: justify; }
+        .contato-texto { font-size: 18px; line-height: 1.9; margin-bottom: 50px; color: #cbd5e1; max-width: 750px; margin-left: auto; margin-right: auto; text-align: left; }
         .contato-links { display: flex; flex-direction: column; gap: 20px; align-items: center; }
         .contato-links a, .contato-links span {
             color: var(--text-light); text-decoration: none; display: flex; align-items: center; gap: 15px;
@@ -328,10 +338,10 @@
             box-shadow: var(--glass-shadow), var(--glass-highlight);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(15px);
         }
-        .contato-links a:hover {
+        .contato-links a:hover, .contato-links a:focus-visible {
             border-color: var(--magenta); color: #fff; background: rgba(193, 28, 132, 0.1);
             box-shadow: 0 15px 30px rgba(193, 28, 132, 0.25), inset 0 1px 2px rgba(255,255,255,0.2); 
-            transform: translateY(-4px) scale(1.02);
+            transform: translateY(-4px) scale(1.02); outline: none;
         }
         .contato-links i { font-size: 22px; color: var(--magenta); }
 
@@ -363,14 +373,14 @@
         <h1>Automação, IA, inovação <br>e eficiência operacional</h1>
         
         <div class="social-icons">
-            <a href="https://github.com/beatrizprietof" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/beatriz-prieto-559ab7248" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:beateizprieto15@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/beatrizprietof" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil no GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/beatriz-prieto-559ab7248" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil no LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="mailto:beateizprieto15@gmail.com" aria-label="Enviar um E-mail"><i class="fas fa-envelope" aria-hidden="true"></i></a>
         </div>
 
-        <a href="#sobre" class="scroll-down">
+        <a href="#sobre" class="scroll-down" aria-label="Deslizar para a seção Sobre">
             Deslize para baixo
-            <div class="scroll-arrow"></div>
+            <div class="scroll-arrow" aria-hidden="true"></div>
         </a>
     </section>
 
@@ -381,7 +391,7 @@
             
             <div class="sobre-col-esquerda">
                 <div class="foto-perfil-container">
-                    <img src="perfil.jpg" alt="Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=C11C84&size=230&font-size=0.4';">
+                    <img src="perfil.jpg" alt="Foto de Beatriz Prieto" class="foto-perfil" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Beatriz+Prieto&background=040f13&color=C11C84&size=230&font-size=0.4';">
                 </div>
                 <div class="glass-panel sobre-texto">
                     <p>Analista de qualidade com foco em melhoria contínua e automação, apaixonada por tecnologia, inovação e eficiência operacional, e graduanda no curso de Processos Gerenciais.</p>
@@ -460,7 +470,7 @@
         </div>
 
         <div class="btn-container">
-            <a href="curriculo.pdf" target="_blank" class="btn-curriculo"><i class="fas fa-download"></i> Baixar Currículo</a>
+            <a href="curriculo.pdf" target="_blank" rel="noopener noreferrer" class="btn-curriculo"><i class="fas fa-download" aria-hidden="true"></i> Baixar Currículo</a>
         </div>
     </section>
 
@@ -471,86 +481,86 @@
         <div class="projetos-accordion">
             
             <div class="glass-panel accordion-item">
-                <div class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <div class="header-info">
                         <span class="card-category">IA & Automação</span>
                         <span class="card-title">Agente de IA via Zapier</span>
                     </div>
-                    <i class="fas fa-chevron-down icon-toggle"></i>
-                </div>
+                    <i class="fas fa-chevron-down icon-toggle" aria-hidden="true"></i>
+                </button>
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Agente autônomo integrado para triagem, processamento de demandas e respostas automatizadas.</div>
                         <div class="card-tech">Stack: Zapier, LLM, Webhooks</div>
-                        <a href="https://github.com/beatrizprietof/agente-ia-zapier" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+                        <a href="https://github.com/beatrizprietof/agente-ia-zapier" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fab fa-github" aria-hidden="true"></i> Ver no GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-panel accordion-item">
-                <div class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <div class="header-info">
                         <span class="card-category">BI & Data Viz</span>
                         <span class="card-title">Dashboard Estratégico Looker</span>
                     </div>
-                    <i class="fas fa-chevron-down icon-toggle"></i>
-                </div>
+                    <i class="fas fa-chevron-down icon-toggle" aria-hidden="true"></i>
+                </button>
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Painel interativo focado na análise de KPIs operacionais com navegação dinâmica.</div>
                         <div class="card-tech">Stack: Looker Studio, SQL</div>
-                        <a href="https://github.com/beatrizprietof/dashboard-imoveis-despublicados" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+                        <a href="https://github.com/beatrizprietof/dashboard-imoveis-despublicados" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fab fa-github" aria-hidden="true"></i> Ver no GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-panel accordion-item">
-                <div class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <div class="header-info">
                         <span class="card-category">Web App & Data</span>
                         <span class="card-title">Dashboard Interativo por Script</span>
                     </div>
-                    <i class="fas fa-chevron-down icon-toggle"></i>
-                </div>
+                    <i class="fas fa-chevron-down icon-toggle" aria-hidden="true"></i>
+                </button>
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Aplicação customizada em código para exploração visual de dados em tempo real.</div>
                         <div class="card-tech">Stack: Python, Streamlit/Dash</div>
-                        <a href="https://github.com/beatrizprietof/dashboard-indicadores-qualidade-appscript" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+                        <a href="https://github.com/beatrizprietof/dashboard-indicadores-qualidade-appscript" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fab fa-github" aria-hidden="true"></i> Ver no GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-panel accordion-item">
-                <div class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <div class="header-info">
                         <span class="card-category">Scripting</span>
                         <span class="card-title">Automação de Relatório de Feedback</span>
                     </div>
-                    <i class="fas fa-chevron-down icon-toggle"></i>
-                </div>
+                    <i class="fas fa-chevron-down icon-toggle" aria-hidden="true"></i>
+                </button>
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Script que consolida o volume de feedbacks recebidos e dispara resumos automáticos por e-mail.</div>
                         <div class="card-tech">Stack: Python, SMTP, APIs</div>
-                        <a href="https://github.com/beatrizprietof/automacao-email-feedbacks-appscript" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+                        <a href="https://github.com/beatrizprietof/automacao-email-feedbacks-appscript" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fab fa-github" aria-hidden="true"></i> Ver no GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-panel accordion-item">
-                <div class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <div class="header-info">
                         <span class="card-category">ChatOps</span>
                         <span class="card-title">Alerta Automático no Google Chat</span>
                     </div>
-                    <i class="fas fa-chevron-down icon-toggle"></i>
-                </div>
+                    <i class="fas fa-chevron-down icon-toggle" aria-hidden="true"></i>
+                </button>
                 <div class="accordion-content">
                     <div class="content-inner">
                         <div class="card-desc">Sistema de monitoramento contínuo que envia cards de alerta instantâneos em canais de equipe.</div>
                         <div class="card-tech">Stack: Python, Google Chat API</div>
-                        <a href="https://github.com/beatrizprietof/alerta-aderencia-gchat-appscript" target="_blank" class="card-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+                        <a href="https://github.com/beatrizprietof/alerta-aderencia-gchat-appscript" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fab fa-github" aria-hidden="true"></i> Ver no GitHub</a>
                     </div>
                 </div>
             </div>
@@ -575,9 +585,9 @@
         </div>
         
         <div class="contato-links">
-            <span><i class="fab fa-whatsapp"></i> (11) 95813-2720</span>
-            <a href="mailto:beateizprieto15@gmail.com"><i class="fas fa-envelope"></i> beateizprieto15@gmail.com</a>
-            <a href="https://www.linkedin.com/in/beatriz-prieto-559ab7248" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/beatriz-prieto-559ab7248</a>
+            <span><i class="fab fa-whatsapp" aria-hidden="true"></i> (11) 95813-2720</span>
+            <a href="mailto:beateizprieto15@gmail.com" aria-label="Enviar um E-mail"><i class="fas fa-envelope" aria-hidden="true"></i> beateizprieto15@gmail.com</a>
+            <a href="https://www.linkedin.com/in/beatriz-prieto-559ab7248" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil no LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin.com/in/beatriz-prieto-559ab7248</a>
         </div>
     </section>
 
@@ -585,16 +595,19 @@
         Desenvolvido por Beatriz Prieto de Franca © 2026
     </footer>
 
-    <!-- Script Accordion Otimizado para Animação -->
+    <!-- Script Accordion Otimizado para Animação e Acessibilidade -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const accordions = document.querySelectorAll('.accordion-header');
             
             // Abre o primeiro projeto por padrão
             if(accordions.length > 0) {
-                const firstItem = accordions[0].parentElement;
-                const firstContent = accordions[0].nextElementSibling;
+                const firstHeader = accordions[0];
+                const firstItem = firstHeader.parentElement;
+                const firstContent = firstHeader.nextElementSibling;
+                
                 firstItem.classList.add('active');
+                firstHeader.setAttribute('aria-expanded', 'true');
                 
                 // timeout para garantir que o DOM renderizou antes de pegar a altura
                 setTimeout(() => {
@@ -612,12 +625,14 @@
                     document.querySelectorAll('.accordion-item').forEach(otherItem => {
                         otherItem.classList.remove('active');
                         otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                        otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
                     });
 
                     // Abre o clicado se estava fechado
                     if (!isActive) {
                         item.classList.add('active');
                         content.style.maxHeight = content.scrollHeight + "px";
+                        this.setAttribute('aria-expanded', 'true');
                     }
                 });
             });
